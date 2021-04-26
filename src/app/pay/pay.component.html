@@ -2,14 +2,13 @@
   <div class="row align-items-center mt-5">
     <p>ORDER SUMMARY:</p>
     <div class="col-3">
-      TO PAY:
-      <span class="badge rounded-pill bg-warning text-dark">$ xx xx xx</span>
-      for
-
+      TO PAY: $
+      <span class="badge rounded-pill bg-warning text-dark">xx xx xx</span>
+      FOR
       <span class="badge rounded-pill bg-warning text-dark">
         {{ itemNumber }}
       </span>
-      Items
+      ITEM'S
     </div>
   </div>
   <div class="row align-items-center mt-4">
@@ -36,7 +35,51 @@
   <div class="row align-items-center mt-3">
     <hr />
     <p>PAYMENT INFORMATION:</p>
+    <p>
+      <span>
+        <input
+          (click)="checkMaster()"
+          class="form-check-input"
+          type="radio"
+          name="radioNoLabel"
+          id="radioNoLabel1"
+          value=""
+          aria-label="..."
+          checked
+        />
+        Master Card
+      </span>
+      <span>
+        <input
+          (click)="checkPaypal()"
+          class="form-check-input"
+          type="radio"
+          name="radioNoLabel"
+          id="radioNoLabel1"
+          value=""
+          aria-label="..."
+        />
+        PayPal
+      </span>
+    </p>
+    <div></div>
 
+    <div class="row">
+      <div class="col-3">
+        <span *ngIf="master">
+          <img
+            src="https://image.flaticon.com/icons/png/512/62/62940.png"
+            width="120"
+          />
+        </span>
+        <span *ngIf="paypal">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiUCIltcSJSnX6S3USjtFIU-BjypM0jcbvNzItuGzsvErPZKyKdwpSqR_pXXnVyeGz1zU&usqp=CAU"
+            width="120"
+          />
+        </span>
+      </div>
+    </div>
     <div class="col-3">
       <input
         type="text"

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsServiceService } from './../products-service.service';
-
 @Component({
   selector: 'app-item',
   templateUrl: './item.component.html',
