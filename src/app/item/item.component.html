@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  </head>
+  <body>
+
+<br/>
+
+<div class="container-fluid">
+  <div class="row mt-4" >
+    <div class="col-4">
+
+     <ng-select [items]="selectProducts" (change)="onChange($event)"
+                   bindLabel="name"
+                    bindValue="id"
+                   placeholder="Select Product"
+                   >
+        </ng-select>
+        <br/>
+       </div>
+      </div>
+</div>
+
+<!-- ----------------------------------------------------------------------- -->
+<!--                                   Page Loader                                                       -->
+<!-- ------------------------------------------------------ ----------------- -->
+
+<div class="loader" *ngIf="isLoadingData">Loading...</div>
+<div class="container-fluid" *ngIf="!isLoadingData">
+<div class="row">
+ <div class="col-sm-8">
+
+  <div class="row" >
+         <div class="col-4" *ngFor="let product of products">
+            <div class="card text-center">
+               <img src="{{ product.image}}" class="card-img-top" alt="...">
+               <div class="card-body">
+                  <p class="card-text">{{ product.title }}</p>
+                  <button  class="btn" (click)="onAdd(product)" style="color: white; background-color: #ffc733;">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                     </svg>
+                     Add to Card
+                  </button>
+               </div>
+            </div>
+            <br/>
+         </div>
+      </div>
+   </div>
+
+
+   <div class="col-4" >
+      <div class="row">
+         <div class="col-12">
+         <div class="alert alert-warning" role="alert" *ngIf="cartItems.length == 0">
+  Cart Items is Empty !
+</div>
+
+
+<div class="list-group" *ngIf="cartItems.length >=  1">
+               <a    class="list-group-item list-group-item-action border-0" style="background-color: #ffc733;">
+               Card Items</a>
+               <div  *ngFor="let item of  cartItems" class="list-group-item list-group-item-action">
+               <div class="row" >
+                  <div class="col-8">
+            {{ item.title }}
+                  </div>
+                  <div class="col">
+                     <span class="input-group-btn">
+                     <button (click)="onAdd(item)"  type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
+                     <span class="glyphicon glyphicon-minus"></span>
+                     +
+                     </button>
+                     </span>
+                     <span> {{  item.qty }} </span>
+                     <span class="input-group-btn">
+                     <button (click)="onRemove(item)" type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
+                     <span class="glyphicon glyphicon-plus"></span>
+                     -
+                     </button>
+                     </span>
+                  </div>
+               </div>
+              </div>
+    
+        <br/>
+        <button  class="btn" (click)="getRecipe(cartItems)" style="color: white; background-color: #ffc733;">
+       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-check" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+  <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+</svg>
+        Checkout
+                  </button>
+<br/>
+                  <button  class="btn"  [routerLink]="['/pay',cartItems.length]" style="color: white; background-color: #ffc733;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cash-stack" viewBox="0 0 16 16">
+                        <path d="M1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1H1zm7 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>
+                        <path d="M0 5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V5zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V7a2 2 0 0 1-2-2H3z"/>
+                      </svg>
+                     Pay
+                               </button>
+                               <br/>
+                
+               </div>
+
+               <div class="list-group" *ngIf="recipes.length >= 1">
+               <a    class="list-group-item list-group-item-action border-0" style="background-color: #ffc733;">
+               products Recipe</a>
+               <div  class="list-group-item list-group-item-action"  *ngFor="let item of  recipes">
+               <div class="row">
+                  <div class="col-12">
+                <div> product : </div> {{ item.title }}
+                </div>
+
+                  <div class="col-12">
+                   <div> Recipe :  </div>  {{ item.ingredientList }}
+                   </div>
+
+
+                </div>
+                </div>
+                </div>
+            </div>
+       </div>
+   </div>
+</div>
+</div>
+
+
+</body>
+</html>

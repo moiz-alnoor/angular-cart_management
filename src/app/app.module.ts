@@ -5,10 +5,14 @@ import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule} from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { ItemComponent } from './item/item.component';
+import { PayComponent } from './pay/pay.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ItemComponent,
+    PayComponent,
   ],
   imports: [
     BrowserModule, FormsModule, NgSelectModule,
