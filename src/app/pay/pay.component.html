@@ -1,57 +1,87 @@
-
-
 <div class="container">
-    <div class="row align-items-center mt-4">
-        <p>ORDER SUMMARY:</p>
-    <div class="col-3"> 
-        TO PAY: <span class="badge rounded-pill bg-warning text-dark">$ xx xx xx</span> for 
-        
-        <span class="badge rounded-pill bg-warning text-dark"> {{itemNumber}} </span> 
-       Items
-    </div>
-</div>
-<div class="row align-items-center mt-4">
-    <hr>
-      <p>ACCOUNT INFORMATION:</p>
+  <div class="row align-items-center mt-5">
+    <p>ORDER SUMMARY:</p>
     <div class="col-3">
-      <input type="text" class="form-control" placeholder="xx xx xx" aria-label="xx xx xx">
+      TO PAY:
+      <span class="badge rounded-pill bg-warning text-dark">$ xx xx xx</span>
+      for
+
+      <span class="badge rounded-pill bg-warning text-dark">
+        {{ itemNumber }}
+      </span>
+      Items
+    </div>
+  </div>
+  <div class="row align-items-center mt-4">
+    <hr />
+    <p>ACCOUNT INFORMATION:</p>
+    <div class="col-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="xx xx xx"
+        aria-label="xx xx xx"
+      />
     </div>
     <div class="col-3">
-        <input type="text" class="form-control" placeholder="xx xx xx" aria-label="xx xx xx">
-      </div>
-  
-
+      <input
+        type="text"
+        class="form-control"
+        placeholder="xx xx xx"
+        aria-label="xx xx xx"
+      />
     </div>
-    <br/>
-    <div class="row align-items-center mt-3">
-        <hr>
-           <p>PAYMENT INFORMATION:</p>
- 
-        <div class="col-3">
-        <input type="text" class="form-control" placeholder="xx xx xx" aria-label="xx xx xx">
-      </div>
-    
-      <div class="col-3">
-        <input type="text" class="form-control" placeholder="xx xx xx" aria-label="xx xx xx">
-      </div>
-      
-</div>
- 
-<div class="row align-items-center mt-1">
-      <div class="row align-items-center mt-2">
+  </div>
+  <br />
+  <div class="row align-items-center mt-3">
+    <hr />
+    <p>PAYMENT INFORMATION:</p>
 
-        
-    <div class="col">
-        
-        <button  class="btn"  [routerLink]="['/pay']" style="color: white; background-color: #ffc733;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cash-stack" viewBox="0 0 16 16">
-                <path d="M1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1H1zm7 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>
-                <path d="M0 5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V5zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V7a2 2 0 0 1-2-2H3z"/>
-              </svg>
-             Pay </button>
+    <div class="col-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="xx xx xx"
+        aria-label="xx xx xx"
+      />
+    </div>
 
-      </div>
+    <div class="col-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="xx xx xx"
+        aria-label="xx xx xx"
+      />
     </div>
   </div>
 
-
+  <div class="row align-items-center mt-1">
+    <div class="row align-items-center mt-2">
+      <div class="col">
+        <button
+          class="btn"
+          [routerLink]="['/pay']"
+          style="color: white; background-color: #ffc733"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-cash-stack"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1H1zm7 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"
+            />
+            <path
+              d="M0 5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V5zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V7a2 2 0 0 1-2-2H3z"
+            />
+          </svg>
+          Pay
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
