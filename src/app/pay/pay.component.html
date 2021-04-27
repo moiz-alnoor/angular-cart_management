@@ -1,40 +1,30 @@
 <div class="container">
   <div class="row align-items-center mt-5">
-    <p class="text-primary"> ORDER SUMMARY</p>
-    <div class="col-3">
-      TO PAY: $
-      <span class="badge rounded-pill bg-warning text-dark">xx xx xx</span>
+    <p class="text-primary">Order Summary</p>
+    <div class="col">
+      To Pay: $
+      <span class="badge rounded-pill bg-warning text-dark">
+        {{ totalItem }} items's * item's price
+      </span>
       FOR
       <span class="badge rounded-pill bg-warning text-dark">
-        {{ itemNumber }}
+        {{ totalItem }}
       </span>
       ITEM'S
     </div>
   </div>
   <div class="row align-items-center mt-4">
-    <hr />
-    <p class="text-primary"> ACCOUNT INFORMATION</p>
+    <p class="text-primary">Account Information</p>
     <div class="col-3">
-      <input
-        type="text"
-        class="form-control"
-        placeholder="xx xx xx"
-        aria-label="xx xx xx"
-      />
+      <input type="text" class="form-control" placeholder="# # # #" />
     </div>
     <div class="col-3">
-      <input
-        type="text"
-        class="form-control"
-        placeholder="xx xx xx"
-        aria-label="xx xx xx"
-      />
+      <input type="text" class="form-control" placeholder="# # # #" />
     </div>
   </div>
   <br />
   <div class="row align-items-center mt-3">
-    <hr />
-    <p class="text-primary">PAYMENT INFORMATION:</p>
+    <p class="text-primary">Payment Information:</p>
     <p>
       <span>
         <input
@@ -80,51 +70,77 @@
         </span>
       </div>
     </div>
-    <div class="col-3">
-      <input
-        type="text"
-        class="form-control"
-        placeholder="xx xx xx"
-        aria-label="xx xx xx"
-      />
+    <div class="row">
+      <div class="col-3" *ngIf="master">
+        <input type="text" class="form-control" placeholder="# # # #" />
+      </div>
+      <div class="col-3" *ngIf="master">
+        <input type="text" class="form-control" placeholder="# # # #" />
+      </div>
     </div>
 
-    <div class="col-3">
-      <input
-        type="text"
-        class="form-control"
-        placeholder="xx xx xx"
-        aria-label="xx xx xx"
-      />
+    <div class="row mt-3">
+      <div class="col-3">
+        <input type="text" class="form-control" placeholder="# # # #" />
+      </div>
+      <div class="col-3">
+        <input type="text" class="form-control" placeholder="# # # #" />
+      </div>
     </div>
   </div>
 
-  <div class="row align-items-center mt-1">
+  <div class="row align-items-center mt-3">
     <div class="row align-items-center mt-2">
       <div class="col">
-        <button
-          class="btn"
-          [routerLink]="['/pay']"
-          style="color: white; background-color: #ffc733"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="currentColor"
-            class="bi bi-cash-stack"
-            viewBox="0 0 16 16"
+        <span class="mr-2">
+          <button
+            class="btn"
+            [routerLink]="['/pay']"
+            style="color: white; background-color: #ffc733"
           >
-            <path
-              d="M1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1H1zm7 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"
-            />
-            <path
-              d="M0 5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V5zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V7a2 2 0 0 1-2-2H3z"
-            />
-          </svg>
-          Pay
-        </button>
-        <hr>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-cash-stack"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1H1zm7 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"
+              />
+              <path
+                d="M0 5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V5zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V7a2 2 0 0 1-2-2H3z"
+              />
+            </svg>
+            Pay Now
+          </button>
+        </span>
+        OR
+        <span>
+          <button
+            class="btn"
+            [routerLink]="['/']"
+            style="color: white; background-color: #ffc733"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-x-circle"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+              />
+              <path
+                d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"
+              />
+            </svg>
+            Cancel & Back
+          </button>
+        </span>
       </div>
     </div>
   </div>

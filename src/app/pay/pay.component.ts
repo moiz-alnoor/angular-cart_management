@@ -6,18 +6,21 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./pay.component.css'],
 })
 export class PayComponent implements OnInit {
-  itemNumber: any;
+  totalItem: any;
   master: boolean = true;
   paypal:boolean = false;
   constructor(private _Activatedroute: ActivatedRoute) {
-    this.itemNumber = this._Activatedroute.snapshot.paramMap.get('item_number');
+    this.totalItem = this._Activatedroute.snapshot.paramMap.get('totalItem');
   }
 
   ngOnInit(): void {}
+
+    /* masterCardInput  */
   checkMaster(){
     this.master = true;
     this.paypal = false;
   }
+    /* payPalInput  */
   checkPaypal(){
     this.master = false;
     this.paypal = true;

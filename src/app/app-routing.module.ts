@@ -5,7 +5,7 @@ import { PayComponent } from '../app/pay/pay.component';
 
 const routes: Routes = [
    { path: '', component: ItemComponent },
-   { path: 'pay/:item_number', component: PayComponent }
+   { path: 'pay/:totalItem', component: PayComponent }
 ];
 
 @NgModule({

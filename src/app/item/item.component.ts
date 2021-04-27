@@ -24,13 +24,13 @@ export class ItemComponent implements OnInit {
   isLoadingData: boolean = false;
   cartItems: any[] = [];
   exist: any;
+  totalItem: number = 0;
 
-  //  all this key are available
+  //  these api keys are just avaliable for a number of requests, not more than 40 maybe
+  //  all the bellow  keys are available , if the current key not work please try any of ather 3 keys 
 
-  apiKey = 'e2fc984542944254a3ff7b6fe1e553ab';
-  //apiKey = '3adcaf7fdc8f400f84ae38d0eafa4a75'
-
-  // not use for dev
+  //apiKey = 'e2fc984542944254a3ff7b6fe1e553ab';
+  apiKey = '3adcaf7fdc8f400f84ae38d0eafa4a75';
   //apiKey = 'cbac52df41214743a4dabcacf89b4226'
   //apiKey = 'c63e3cb004bf4b62a30b3332ed3895ae'
 
@@ -103,6 +103,7 @@ export class ItemComponent implements OnInit {
     } else {
       this.cartItems = [...this.cartItems, { ...product, qty: 1 }];
     }
+    this.totalItem++;
   }
 
   /*  when user remove item from card  */
@@ -115,5 +116,6 @@ export class ItemComponent implements OnInit {
         x.id === product.id ? { ...this.exist, qty: this.exist.qty - 1 } : x
       );
     }
+    this.totalItem--;
   }
 }

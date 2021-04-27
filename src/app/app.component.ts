@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class AppComponent implements OnInit {
-
+  
+  /* static uiData */
   title = 'Shoping cart';
   userName = 'Moiz Alnoor';
   constructor() {}
